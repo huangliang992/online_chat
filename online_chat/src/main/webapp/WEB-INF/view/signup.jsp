@@ -6,6 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="${pageContext.request.contextPath}/resources/layoutit/src/css/bootstrap.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/layoutit/src/css/style.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/layoutit/src/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/layoutit/src/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/layoutit/src/js/scripts.js"></script>
+<script src="${pageContext.request.contextPath}/resources/jquery_validation/lib/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/resources/jquery_validation/dist/jquery.validate.min.js"></script>
 <title>Sign Up</title>
 </head>
 <style>
@@ -23,7 +28,7 @@ $(document).ready(function(){
 		}
 });
 function check(){
-	$ajax({
+	$.ajax({
 		data:"username="+$("#username").val(),
 		dataType:'json',
 		type:"GET",
@@ -37,11 +42,6 @@ function check(){
 		});
 }
 </script>
-<script src="${pageContext.request.contextPath}/resources/layoutit/src/js/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/layoutit/src/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/layoutit/src/js/scripts.js"></script>
-<script src="${pageContext.request.contextPath}/resources/jquery_validation/lib/jquery.js"></script>
-<script src="${pageContext.request.contextPath}/resources/jquery_validation/dist/jquery.validate.min.js"></script>
 <div class="container-fluid">
 	<div class="row" style="background-color:#39D8D8;height:768px">
 		<div class="col-md-12">
@@ -55,7 +55,7 @@ function check(){
 					<form role="form" id="signup" action="${pageContext.request.contextPath}/signup/adduser">
 						<div class="form-group">
 							 
-							<label for="username">
+							<label for="username" id="userlabel">
 								user name:
 							</label>
 							<input type="text" class="form-control" id="username" name="username" onBlur="check()"/>

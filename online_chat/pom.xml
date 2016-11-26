@@ -120,6 +120,22 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
-		
+		<!-- jackson spring通过response向前台发送数据是转成json格式要用到-->
+        <dependency>  
+            <groupId>org.codehaus.jackson</groupId>  
+            <artifactId>jackson-mapper-asl</artifactId>  
+            <version>1.9.13</version>  
+        </dependency>  
+  
+        <dependency>  
+            <groupId>org.codehaus.jackson</groupId>  
+            <artifactId>jackson-core-asl</artifactId>  
+            <version>1.9.13</version>  
+        </dependency> 
+        <dependency>  
+            <groupId>com.fasterxml.jackson.core</groupId>  
+            <artifactId>jackson-databind</artifactId>  
+            <version>2.5.0</version>  
+        </dependency> 		
 	</dependencies>	
 </project>

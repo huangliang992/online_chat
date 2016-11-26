@@ -1,10 +1,13 @@
 package com.hainan.cs.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hainan.cs.bean.UserBean;
@@ -41,5 +44,21 @@ public class SignupController {
 			mav.addObject("tag", 1);
 		}
 		return mav;
+	}
+	
+	@RequestMapping(value="/check")
+	@ResponseBody
+	public Map<String, Object> check(String username){
+		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("spring/application-config.xml");
+		UserDaoImp udi=context.getBean(UserDaoImp.class);
+		List<UserBean> ulist=udi.queryUser(username);
+		Map<String,Object> map=new HashMap<String,Object>();
+		if(ulist.size()!=0){
+			map.put("msg", "用户名已经存在");
+		}else {
+			map.put("msg", "用户名可以使用");
+		}
+		context.close();
+		return map;
 	}
 }

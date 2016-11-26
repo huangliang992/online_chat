@@ -22,6 +22,20 @@ $(document).ready(function(){
 		alert("user name exist");
 		}
 });
+function check(){
+	$ajax({
+		data:"username="+$("#username").val(),
+		dataType:'json',
+		type:"GET",
+		url:"${pageContext.request.contextPath}/signup/check",
+		success:function(data){
+			$("#userlabel").html("user name:<span style=\"color:red\">"+data.msg+"</span>");
+			},
+		error:function(data){
+			alert("error");
+			}
+		});
+}
 </script>
 <script src="${pageContext.request.contextPath}/resources/layoutit/src/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/layoutit/src/js/bootstrap.min.js"></script>
@@ -44,7 +58,7 @@ $(document).ready(function(){
 							<label for="username">
 								user name:
 							</label>
-							<input type="text" class="form-control" id="username" name="username"/>
+							<input type="text" class="form-control" id="username" name="username" onBlur="check()"/>
 						</div>
 						<div class="form-group">
 							 

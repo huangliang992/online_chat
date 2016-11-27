@@ -33,6 +33,7 @@ public class LoginController {
 				UserSingleton us=UserSingleton.getInstance();
 				us.setPassword(password);
 				us.setUsername(username);
+				us.setUserid(user.getId());
 				mav.addObject("tag", 0);
 				mav.addObject("username", username);
 				mav.setViewName("chat");

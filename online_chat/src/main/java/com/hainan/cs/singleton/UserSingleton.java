@@ -3,7 +3,15 @@ package com.hainan.cs.singleton;
 public class UserSingleton {
 	private String username;
 	private String password;
+	private String userid;
 	
+	
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 	public String getUsername() {
 		return username;
 	}

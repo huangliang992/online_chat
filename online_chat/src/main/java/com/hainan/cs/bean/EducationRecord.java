@@ -1,13 +1,13 @@
 package com.hainan.cs.bean;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
 
 public class EducationRecord {
 	private int id;
 	private String userid;
 	private String username;
 	private String content;
-	private Data sdata;
+	private Date sdate;
 	public int getId() {
 		return id;
 	}
@@ -32,11 +32,11 @@ public class EducationRecord {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Data getSdata() {
-		return sdata;
+	public Date getSdate() {
+		return sdate;
 	}
-	public void setSdata(Data sdata) {
-		this.sdata = sdata;
+	public void setSdata(Date sdate) {
+		this.sdate = sdate;
 	}
 	
 }

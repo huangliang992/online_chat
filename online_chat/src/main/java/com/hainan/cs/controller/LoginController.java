@@ -34,6 +34,7 @@ public class LoginController {
 				us.setPassword(password);
 				us.setUsername(username);
 				mav.addObject("tag", 0);
+				mav.addObject("username", username);
 				mav.setViewName("chat");
 			};
 			

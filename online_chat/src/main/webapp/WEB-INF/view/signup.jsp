@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="${pageContext.request.contextPath}/resources/layoutit/src/css/bootstrap.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/layoutit/src/css/style.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/resources/layoutit/src/js/jquery.min.js"></script>
@@ -50,53 +50,53 @@ function check(){
 				</div>
 				<div class="col-md-4" style="background-color:#f5f5f5;margin-top:80px">
 				<br><br>
-					<h2 style="text-align:center">Sign</h2>
+					<h2 style="text-align:center">注册</h2>
 					<br><br>
 					<form role="form" id="signup" action="${pageContext.request.contextPath}/signup/adduser">
 						<div class="form-group">
 							 
 							<label for="username" id="userlabel">
-								user name:
+								用户名:
 							</label>
 							<input type="text" class="form-control" id="username" name="username" onBlur="check()"/>
 						</div>
 						<div class="form-group">
 							 
 							<label for="password">
-								Password:
+								密码:
 							</label>
 							<input type="password" class="form-control" id="password" name="password"/>
 						</div>
 						<div class="form-group">
 							 
 							<label for="rpassword">
-								Password again:
+								确认密码:
 							</label>
 							<input type="password" class="form-control" id="rpassword" name="rpassword"/>
 						</div>
 						<div class="form-group">
 							 
 							<label for="email">
-								email:
+								邮箱:
 							</label>
 							<input type="email" class="form-control" id="email" name="email"/>
 						</div>
 						<div class="form-group">
 							 
 							<label for="phone">
-								phone:
+								电话:
 							</label>
 							<input type="text" class="form-control" id="phone" name="phone"/>
 						</div>
 						<div class="form-group">
 							 
 							<label for="address">
-								address:
+								地址:
 							</label>
 							<input type="text" class="form-control" id="address" name="address"/>
 						</div>
 						<button type="submit" class="btn btn-default" id="btn1">
-							Submit
+							提交
 						</button>
 						<br><br>
 					</form>

@@ -88,12 +88,12 @@
 									</div>
 							</div>
 						</div>
-						<script type="text/javascript">
+						<script type="text/javascript" charset="UTF-8">
 							$("#ebutton").click(function(){
 								$.ajax({
 									data:"message="+$("#emessage").val(),
 									dataType:'json',
-									type:"GET",
+									type:"POST",
 									url:"${pageContext.request.contextPath}/chat/echat",
 									success:function(data){
 										$("#ceducation").html("成功！");

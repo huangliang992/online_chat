@@ -19,11 +19,16 @@ import com.hainan.cs.singleton.UserSingleton;
 public class ChatController {
 	@RequestMapping()
 	public ModelAndView chat(){
-		return new ModelAndView("chat");
+		ModelAndView mav=new ModelAndView();
+		UserSingleton user=UserSingleton.getInstance();
+		mav.addObject("username", user.getUsername());
+		mav.setViewName("chat");
+		return mav;
 	}
 	@RequestMapping(value="/echat")
 	@ResponseBody
 	public Map<String,EducationRecord> echat(String message){
+		System.out.println(message);
 		Map<String, EducationRecord> map=new HashMap<String,EducationRecord>();
 		UserSingleton user=UserSingleton.getInstance();
 		Date date=new Date();

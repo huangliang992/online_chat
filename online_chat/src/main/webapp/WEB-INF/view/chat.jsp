@@ -8,6 +8,7 @@
 <link href="${pageContext.request.contextPath}/resources/layoutit/src/css/style.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/resources/layoutit/src/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/layoutit/src/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/layoutit/src/js/angular.js"></script> 
 <title>聊天室</title>
 </head>
 <body>
@@ -72,13 +73,29 @@
 								</div>
 							</div>
 							<!-- 教育聊天室 -->
-							<div class="row" id="education">教育
-								<div class="row" id="ceducation">${reducation }</div>
+							<div class="row" id="education" >教育
+								<div class="row" id="ceducation">
+									<input type="hidden" name="edu" id="edu" value="${erecord }">
+									<div id="educontent"></div>
+								</div>
+								<script type="text/javascript">
+									$(document).ready(function(){
+										var education=${erecord};
+										var content="";
+										for(var i in education){
+											content=content+"<p style=\"color:red\">"+education[i].username+" "+
+											education[i].time+"</p>"+"<p>"+education[i].content+"</p>"
+											;
+											}
+										$("#educontent").html(content);
+										});
+								</script>
 									<div class="row">
 											<textarea rows="5" name="emessage" id="emessage" class="form-control"></textarea>
 											<button id="ebutton" class="btn btn-default">提交</button>
 									</div>
 							</div>
+							
 							<!-- 科技聊天室 -->
 							<div class="row" id="technic">科技
 								<div class="row">${rtechnic }</div>

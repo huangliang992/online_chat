@@ -38,6 +38,9 @@
 							<a type="button" class="btn btn-block btn-success" id="c_technic" href="#">
 								科技聊天室
 							</a>
+							<a type="button" class="btn btn-block btn-default" id="c_enter" href="#">
+								娱乐聊天室
+							</a>
 						</div>
 						<!-- toggle菜单控制显示 -->
 						<script type="text/javascript">
@@ -45,38 +48,63 @@
 								$("#education").show();
 								$("#game").hide();
 								$("#technic").hide();
+								$("#entertainment").hide();
 								});
 							$("#c_game").click(function(){
 								$("#education").hide();
 								$("#game").show();
 								$("#technic").hide();
+								$("#entertainment").hide();
 								});
 							$("#c_education").click(function(){
 								$("#education").show();
 								$("#game").hide();
 								$("#technic").hide();
+								$("#entertainment").hide();
 								});
 							$("#c_technic").click(function(){
 								$("#education").hide();
 								$("#game").hide();
 								$("#technic").show();
+								$("#entertainment").hide();
+								});
+							$("#c_enter").click(function(){
+								$("#education").hide();
+								$("#game").hide();
+								$("#technic").hide();
+								$("#entertainment").show();
 								});
 						</script>
 						<!-- 右边的聊天室 -->
 						<div class="col-md-9">
 							<!-- 游戏聊天室 -->
-							<div class="row" id="game">游戏
-								<div class="row">${rgame }</div>
+							<div class="row" id="game">
+								<h2>游戏聊天室</h2>
+								<div class="row" id="cgame">
+								
+								</div>
+								<script type="text/javascript">
+									$(document).ready(function(){
+										var game=${grecord};
+										var content="";
+										for(var i in game){
+											content=content+"<p style=\"color:red\">"+game[i].username+" "+
+											game[i].time+"</p>"+"<p>"+game[i].content+"</p>";
+											}
+										$("#cgame").html(content);
+
+										});
+								</script>
 								<div class="row">
-										<textarea rows="5" name="gmessage" id="gmessage"></textarea>
+										<textarea rows="5" name="gmessage" id="gmessage" class="form-control"></textarea>
 										<button id="gbutton" class="btn btn-default">提交</button>
 								</div>
 							</div>
 							<!-- 教育聊天室 -->
-							<div class="row" id="education" >教育
+							<div class="row" id="education" >
+								<h2>教育聊天室</h2>
 								<div class="row" id="ceducation">
-									<input type="hidden" name="edu" id="edu" value="${erecord }">
-									<div id="educontent"></div>
+									
 								</div>
 								<script type="text/javascript">
 									$(document).ready(function(){
@@ -87,7 +115,7 @@
 											education[i].time+"</p>"+"<p>"+education[i].content+"</p>"
 											;
 											}
-										$("#educontent").html(content);
+										$("#ceducation").html(content);
 										});
 								</script>
 									<div class="row">
@@ -97,14 +125,54 @@
 							</div>
 							
 							<!-- 科技聊天室 -->
-							<div class="row" id="technic">科技
-								<div class="row">${rtechnic }</div>
+							<div class="row" id="technic">
+								<h2>科技聊天室</h2>
+								<div class="row" id="ctech">
+								
+								</div>
+								<script type="text/javascript">
+									$(document).ready(function(){
+										var tech=${trecord};
+										var content="";
+										for(var i in tech){
+											content=content+"<p style=\"color:red\">"+tech[i].userneame+" "+
+											tech[i].time+"</p>"+"<p>"+tech[i].content+"</p>"
+											;
+											}
+										$("#ctech").html(content);
+										});
+								</script>
 									<div class="row">
 											<textarea rows="5" name="tmessage" id="tmessage" class="form-control"></textarea>
 											<button id="tbutton" class="btn btn-default">提交</button>
 									</div>
 							</div>
+							<!-- 娱乐聊天室 -->
+							<div class="row" id="entertainment">
+								<h2>娱乐聊天室</h2>
+								<div class="row" id="center">
+								
+								</div>
+								<script type="text/javascript">
+									$(document).ready(function(){
+										var en=${enrecord};
+										var content="";
+										for(var i in en){
+											content=content+"<p style=\"color:red\">"+en[i].userneame+" "+
+											en[i].time+"</p>"+"<p>"+en[i].content+"</p>"
+											;
+											}
+										$("#center").html(content);
+										});
+								</script>
+									<div class="row">
+											<textarea rows="5" name="enmessage" id="enmessage" class="form-control"></textarea>
+											<button id="enbutton" class="btn btn-default">提交</button>
+									</div>
+							</div>
 						</div>
+						</div>
+						
 						<script type="text/javascript" charset="UTF-8">
 							$("#ebutton").click(function(){
 								$.ajax({
@@ -120,6 +188,48 @@
 										}
 									});
 								});
+							$("#enbutton").click(function(){
+								$.ajax({
+									data:"message="+$("#enmessage").val(),
+									dataType:'json',
+									url:"${pageContext.request.contextPath}/chat/enchat",
+									type:"POST",
+									success:function(data){
+										$("#center").html("成功！");
+										},
+									error:function(data){
+										alert("错误");
+										}
+									});
+								});
+							$("#gbutton").click(function(){
+								$.ajax({
+									data:"message="+$("#gmessage").val(),
+									dataType:'json',
+									url:"${pageContext.request.contextPath}/chat/gchat",
+									type:"POST",
+									success:function(data){
+										$("#cgame").html("成功！");
+										},
+									error:function(data){
+										alert("错误");
+										}
+									});
+							});
+							$("#tbutton").click(function(){
+								$.ajax({
+									data:"message="+$("#tmessage").val(),
+									dataType:'json',
+									url:"${pageContext.request.contextPath}/chat/tchat",
+									type:"POST",
+									success:function(data){
+										$("#ctech").html("成功！");
+										},
+									error:function(data){
+										alert("错误");
+										}
+									});
+							});
 						</script>
 					</div>
 				</div>
@@ -128,6 +238,5 @@
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>

@@ -20,6 +20,7 @@ public class TechDaoImp implements TechDao{
 	@Override
 	  public void insert(TechRecord tr){
 		  Session session=sessionfactory.openSession();
+		  session.beginTransaction();
 		  session.save(tr);
 		  session.getTransaction().commit();
 		  session.close();
@@ -27,6 +28,7 @@ public class TechDaoImp implements TechDao{
 	  @Override
 	  public List<TechRecord> query(){
 		  Session session=sessionfactory.openSession();
+		  session.beginTransaction();
 		  String str="from TechRecord tr";
 		  Query query=session.createQuery(str);
 		  List<TechRecord> tlist=query.list();

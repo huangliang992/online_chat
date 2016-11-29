@@ -21,6 +21,7 @@ public class GameDaoImp implements GameDao {
 	@Override
 	public void insert(GameRecord gr) {
 		Session session = sessionfactory.openSession();
+		session.beginTransaction();
 		session.save(gr);
 		session.getTransaction().commit();
 		session.close();
@@ -29,6 +30,7 @@ public class GameDaoImp implements GameDao {
 	@Override
 	public List<GameRecord> query() {
 		Session session = sessionfactory.openSession();
+		session.beginTransaction();
 		String str = "from GameRecord gr";
 		Query query = session.createQuery(str);
 		List<GameRecord> glist = query.list();

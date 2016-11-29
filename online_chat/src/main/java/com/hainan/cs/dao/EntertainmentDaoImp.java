@@ -28,6 +28,7 @@ public class EntertainmentDaoImp implements EntertainmentDao{
 	@Override
 	public List<EntertainmentRecord> query(){
 		Session session=sessionfactory.openSession();
+		session.beginTransaction();
 		String str="from EntertainmentRecord er";
 		Query query=session.createQuery(str);
 		List<EntertainmentRecord> elist=query.list();

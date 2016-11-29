@@ -43,4 +43,13 @@
 	<bean id="EducationRecordDao" class="com.hainan.cs.dao.EducationDaoImp">
 		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
 	</bean>
+	<bean id="GameDao" class="com.hainan.cs.dao.GameDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+		<bean id="TechDao" class="com.hainan.cs.dao.TechDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+		<bean id="EntertainmentDao" class="com.hainan.cs.dao.EntertainmentDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
 </beans>

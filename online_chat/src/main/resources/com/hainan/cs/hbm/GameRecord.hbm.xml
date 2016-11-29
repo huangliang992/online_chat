@@ -14,8 +14,8 @@
         <property name="username" type="java.lang.String">
             <column name="USERNAME" />
         </property>
-        <property name="sdata" type="javax.xml.crypto.Data">
-            <column name="SDATA" />
+        <property name="sdate" type="java.util.Date">
+            <column name="SDATE" />
         </property>
         <property name="content" type="java.lang.String">
             <column name="CONTENT" />

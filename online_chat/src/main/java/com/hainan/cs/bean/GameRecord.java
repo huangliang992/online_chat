@@ -1,13 +1,18 @@
 package com.hainan.cs.bean;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
+
 
 public class GameRecord {
 	private int id;
 	private String userid;
 	private String username;
-	private Data sdata;
+	private Date sdate;
 	private String content;
+	
+	public Date getSdate() {
+		return sdate;
+	}
 	public int getId() {
 		return id;
 	}
@@ -26,11 +31,8 @@ public class GameRecord {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public Data getSdata() {
-		return sdata;
-	}
-	public void setSdata(Data sdata) {
-		this.sdata = sdata;
+	public void setSdate(Date sdate) {
+		this.sdate = sdate;
 	}
 	public String getContent() {
 		return content;

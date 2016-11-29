@@ -52,7 +52,7 @@ public class ChatController {
 		Date date=new Date();
 		EducationRecord er=new EducationRecord();
 		er.setContent(message);
-		er.setSdata(date);
+		er.setSdate(date);
 		er.setUserid(user.getUserid());
 		er.setUsername(user.getUsername());
 		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("spring/application-config.xml");

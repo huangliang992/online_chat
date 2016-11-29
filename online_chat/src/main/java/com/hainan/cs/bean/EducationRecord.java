@@ -8,6 +8,10 @@ public class EducationRecord {
 	private String username;
 	private String content;
 	private Date sdate;
+	
+	public void setSdate(Date sdate) {
+		this.sdate = sdate;
+	}
 	public int getId() {
 		return id;
 	}
@@ -34,9 +38,6 @@ public class EducationRecord {
 	}
 	public Date getSdate() {
 		return sdate;
-	}
-	public void setSdata(Date sdate) {
-		this.sdate = sdate;
 	}
 	
 }

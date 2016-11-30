@@ -45,6 +45,7 @@
 						<!-- toggle菜单控制显示 -->
 						<script type="text/javascript">
 							$(document).ready(function(){
+								
 								$("#education").show();
 								$("#game").hide();
 								$("#technic").hide();
@@ -222,12 +223,7 @@
 									dataType:'json',
 									url:"${pageContext.request.contextPath}/chat/tchat",
 									type:"POST",
-									success:function(data){
-										$("#ctech").html("成功！");
-										},
-									error:function(data){
-										alert("错误");
-										}
+									
 									});
 							});
 						</script>

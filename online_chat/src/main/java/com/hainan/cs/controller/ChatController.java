@@ -151,8 +151,7 @@ public class ChatController {
 		return map;
 	}
 	@RequestMapping(value="/tchat")
-	@ResponseBody
-	public Map<String,TechRecord> tchat(String message){
+	public Map<String, TechRecord> tchat(String message){
 		System.out.println(message);
 		Map<String, TechRecord> map=new HashMap<String,TechRecord>();
 		UserSingleton user=UserSingleton.getInstance();
